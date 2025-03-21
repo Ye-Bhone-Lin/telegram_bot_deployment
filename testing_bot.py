@@ -13,8 +13,8 @@ from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 
-TOKEN: Final = "7535102077:AAEhWBZO49TOuQDJahcFcOFtDbJbM8UnM1I"
-BOT_USERNAME: Final = "@yephonelin10_bot"
+TOKEN: Final = "TOKEN"
+BOT_USERNAME: Final = "BOT_NAME"
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Hello!")
@@ -30,7 +30,7 @@ async def final_answer_output(user_input: str) -> str:
     retriever  = load_vector_db.as_retriever()
 
 
-    model = ChatGroq(temperature = 0.1, model_name = "llama-3.1-8b-instant",groq_api_key = "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")
+    model = ChatGroq(temperature = 0.1, model_name = "llama-3.1-8b-instant",groq_api_key = "GROQ_API_KEY")
 
     retriever_prompt = (
         "Give a chat history and the latest user question which might reference context in the chat history,"
