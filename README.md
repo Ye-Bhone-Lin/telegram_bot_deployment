@@ -36,4 +36,4 @@ pip install -r requirements.txt
 
 - Deploy the bot.
 
-# You can test my chatbot by calling @yephonelin10bot in Telegram
+# You can test my chatbot by calling @Simbolo_Bot in Telegram
