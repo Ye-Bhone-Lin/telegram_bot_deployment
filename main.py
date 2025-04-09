@@ -12,6 +12,8 @@ import uuid
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
+from dotenv import load_dotenv
+import os
 
 TOKEN: Final = "TOKEN"
 BOT_USERNAME: Final = "BOT_NAME"
