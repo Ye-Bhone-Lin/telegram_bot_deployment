@@ -15,8 +15,12 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from dotenv import load_dotenv
 import os
 
-TOKEN: Final = "TOKEN"
-BOT_USERNAME: Final = "BOT_NAME"
+load_dotenv()
+
+TOKEN: Final = os.getenv("TOKEN")
+BOT_USERNAME: Final = "@Simbolo_Bot"
+
+
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Hello!")
@@ -32,7 +36,7 @@ async def final_answer_output(user_input: str) -> str:
     retriever  = load_vector_db.as_retriever()
 
 
-    model = ChatGroq(temperature = 0.1, model_name = "llama-3.1-8b-instant",groq_api_key = "GROQ_API_KEY")
+    model = ChatGroq(temperature = 0.1, model_name = "llama-3.3-70b-versatile")
 
     retriever_prompt = (
         "Give a chat history and the latest user question which might reference context in the chat history,"
@@ -55,7 +59,7 @@ async def final_answer_output(user_input: str) -> str:
     system_message = """
     You are a professional and friendly AI assistant designed to provide excellent customer service. Your goal is to assist customers efficiently while maintaining a warm and empathetic tone.
     Answer the question as detailed as possible from the provided context, make sure to provide all the details, if the answer is not in
-    provided context just say, "answer is not available in the context" dont provide wrong answer, everytime user asks you have to mention about simbolo related to their questions, Greeting as a normal customer service\n\n
+    provided context just say, "We only answer about Simbolo." dont provide wrong answer. Always remember your answer must be related to Simbolo\n\n
     Context:\n {context}?\n
     """
 
