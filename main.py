@@ -36,7 +36,7 @@ async def final_answer_output(user_input: str) -> str:
     retriever  = load_vector_db.as_retriever()
 
 
-    model = ChatGroq(temperature = 0.1, model_name = "llama-3.3-70b-versatile")
+    model = ChatGroq(model_name = "llama-3.3-70b-versatile")
 
     retriever_prompt = (
         "Give a chat history and the latest user question which might reference context in the chat history,"
